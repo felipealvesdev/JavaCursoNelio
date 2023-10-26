@@ -18,6 +18,22 @@ public class Order {
         this.client = client;
     }
 
+    public Date getMoment() {
+        return moment;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public List<OrderItem> getItems() {
+        return items;
+    }
+
     public void addItem(OrderItem item) {
         items.add(item);
     }
