@@ -25,14 +25,26 @@ public class Program {
 
             String line = br.readLine();
             while(line != null) {
+
                 String[] fields = line.split(",");
                 String name = fields[0];
-                int votes = Integer.valueOf(fields[1]);
+                Integer votes = Integer.parseInt(fields[1]);
+
+                if(result.containsKey(name)) {
+                    votes += result.get(name);
+                }
+
+                BallotBox ballotBox = new BallotBox(name);
 
                 result.put(name, votes);
+                line = br.readLine();
             }
 
-            System.out.println(result);
+            for(String key : result.keySet()) {
+                System.out.println(key + ": " + result.get(key));
+            }
+
+
         }catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
